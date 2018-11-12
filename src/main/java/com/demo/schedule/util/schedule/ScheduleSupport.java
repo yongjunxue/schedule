@@ -103,7 +103,7 @@ public abstract class ScheduleSupport implements InitializingBean{
 	}
 	
 	/**
-	 * 启动消费者
+	 * 启动消费者(单机环境)
 	 */
 	@Deprecated
 	private void startConsumer() {
@@ -135,7 +135,7 @@ public abstract class ScheduleSupport implements InitializingBean{
 	}
 	
 	/**
-	 * 启动生产者
+	 * 启动生产者(单机环境)
 	 */
 	@Deprecated
 	private void startProvider() {
@@ -174,7 +174,7 @@ public abstract class ScheduleSupport implements InitializingBean{
 	
 	
 	/**
-	 * 启动生产者(redis)
+	 * 启动生产者(单机集群都支持)
 	 */
 	private void startProvider_new() {
 		provider.scheduleAtFixedRate(new Runnable() {
@@ -210,6 +210,7 @@ public abstract class ScheduleSupport implements InitializingBean{
 
 	/**
 	 * 添加任务
+	 * 直接将任务添加到任务队列中
 	 * @param msgList
 	 */
 	@SuppressWarnings("rawtypes")
@@ -242,7 +243,7 @@ public abstract class ScheduleSupport implements InitializingBean{
 		}
 	}
 	/**
-	 * 启动消费者(redis)
+	 * 启动消费者((单机集群都支持))
 	 */
 	private void startConsumer_new() {
 		Random r=new Random();

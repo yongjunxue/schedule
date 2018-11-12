@@ -57,12 +57,12 @@ public class TestSchedule extends ScheduleSupport{
 	@Override
 	public ScheduleTask createTask() {
 		ScheduleTask task=null;
-		String ifStartTestSchedule=PropertiesHolderUtil.getInstance().getProperty("ifStartTestSchedule");
+		String ifStartTestSchedule=PropertiesHolderUtil.getInstance().getProperty("ifStartTestSchedule");//本机器是否启动TestSchedule
 		if(ifStartTestSchedule != null && ifStartTestSchedule.equals("1")){
 			boolean startProvider=false;
 			boolean startConsumer=false;
-			String startProviderStr=PropertiesHolderUtil.getInstance().getProperty("testSchedule.ifStartProvider");
-			String startComsumerStr=PropertiesHolderUtil.getInstance().getProperty("testSchedule.ifStartConsumer");
+			String startProviderStr=PropertiesHolderUtil.getInstance().getProperty("testSchedule.ifStartProvider");//本机器是否启动TestSchedule的生产者
+			String startComsumerStr=PropertiesHolderUtil.getInstance().getProperty("testSchedule.ifStartConsumer");//本机器是否启动TestSchedule的消费者
 			if(startProviderStr != null && startProviderStr.equals("1")){
 				startProvider=true;
 			}
